@@ -113,6 +113,7 @@ let currentPositionQuestion = -1;
 
 function start() {
   document.getElementById("start").remove();
+
   nextQuestion();
 }
 

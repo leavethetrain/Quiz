@@ -1,19 +1,20 @@
 body {
   font-family: "helvetica";
-  margin: 0 auto;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 #display-question {
   background-color: #ddd;
   padding: 3rem 3rem 5rem 3rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.start {
-  margin: 2rem;
+#start {
+  margin: 3.5rem;
   text-align: center;
 }
 
