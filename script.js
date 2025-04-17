@@ -134,6 +134,8 @@ function editQuestion(questionElement) {
 
   questionElement.answers.forEach((answer) => {
     const answerDiv = document.createElement("button");
+    answerDiv.id = answer.id;
+    answerDiv.setAttribute("onclick", `input('${answer.id}')`);
     answerDiv.classList.add("answer");
     answerDiv.appendChild(document.createTextNode(answer.text));
     questionAnswers.appendChild(answerDiv);
@@ -142,7 +144,7 @@ function editQuestion(questionElement) {
   const footer = document.createElement("footer");
   footer.id = "footer";
   const answerButton = document.createElement("button");
-  answerButton.setAttribute("onclick", ``);
+  answerButton.setAttribute("onclick", `solution()`);
   const answerButtonText = document.createTextNode("Lösung");
   answerButton.appendChild(answerButtonText);
   const forwardButton = document.createElement("button");
@@ -174,4 +176,26 @@ function nextQuestion() {
 
   editQuestion(currentQuestion);
   document.getElementById("start").remove();
+}
+
+function input(answerId) {
+  const correctAnswer = currentQuestion.answers.find((answer) => {
+    return answer.correct;
+  });
+
+  if (correctAnswer.id === answerId) {
+    alert("Die Antwort ist richtig");
+    document.getElementById(answerId).classList.add("correct");
+  } else {
+    alert("Die Antwort ist falsch");
+    document.getElementById(answerId).classList.add("incorrect");
+    document.getElementById(correctAnswer.id).classList.add("correct");
+  }
+}
+
+function solution() {
+  const correctAnswer = currentQuestion.answers.find((answer) => {
+    return answer.correct;
+  });
+  document.getElementById(correctAnswer.id).classList.add("correct");
 }
