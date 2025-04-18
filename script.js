@@ -1,6 +1,6 @@
 const questions = [
   {
-    question: "Was ist die Hauptstadt von Deutschland?",
+    question: "Welche Hauptstadt hat Deutschland?",
     id: 1,
     answers: [
       {
@@ -26,7 +26,7 @@ const questions = [
     ],
   },
   {
-    question: "Was ist die Hauptstadt von Frankreich?",
+    question: "Welche Hauptstadt hat Frankreich?",
     id: 2,
     answers: [
       {
@@ -52,7 +52,7 @@ const questions = [
     ],
   },
   {
-    question: "Was ist die Hauptstadt von Italien?",
+    question: "Welche Hauptstadt hat Italien?",
     id: 3,
     answers: [
       {
@@ -78,7 +78,7 @@ const questions = [
     ],
   },
   {
-    question: "Was ist die Hauptstadt von Österreich?",
+    question: "Welche Hauptstadt hat Österreich?",
     id: 4,
     answers: [
       {
@@ -132,14 +132,22 @@ function editQuestion(questionElement) {
   questionDiv.appendChild(questionTitle);
   questionDiv.appendChild(questionAnswers);
 
+  const answersCopy = [];
   questionElement.answers.forEach((answer) => {
+    answersCopy.push(answer);
+  });
+
+  while (answersCopy.length > 0) {
+    const randomPointer = Math.floor(Math.random() * answersCopy.length);
+    const answer = answersCopy.splice(randomPointer, 1)[0];
+
     const answerDiv = document.createElement("button");
     answerDiv.id = answer.id;
     answerDiv.setAttribute("onclick", `input('${answer.id}')`);
     answerDiv.classList.add("answer");
     answerDiv.appendChild(document.createTextNode(answer.text));
     questionAnswers.appendChild(answerDiv);
-  });
+  }
 
   const footer = document.createElement("footer");
   footer.id = "footer";

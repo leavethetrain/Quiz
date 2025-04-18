@@ -6,7 +6,7 @@ body {
 }
 #display-question {
   background-color: #ddd;
-  padding: 3rem 3rem 5rem 3rem;
+  padding: 2rem 3rem 5rem 3rem;
   margin-top: 0;
   margin-bottom: 2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -31,7 +31,7 @@ body {
 
 #title {
   margin-bottom: 3rem;
-  font-size: 3rem;
+  font-size: 2.7rem;
   text-align: center;
 }
 
@@ -45,7 +45,7 @@ body {
 
 .answer {
   height: 6rem;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   width: auto;
   border-radius: 8px;
   border: none;
@@ -88,4 +88,23 @@ body {
   background-color: #ddd;
   height: 2.5rem;
   width: 6rem;
+}
+
+@media only screen and (max-width: 00px) {
+  .answer {
+    width: 9rem;
+  }
+
+  #buttonContent {
+    gap: 1.7rem;
+  }
+
+  #display-question {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+  #title {
+    margin-bottom: 1rem;
+  }
 }
