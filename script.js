@@ -80,6 +80,7 @@ const questions = [
   {
     question: "Welche Hauptstadt hat Österreich?",
     id: 4,
+
     answers: [
       {
         text: "Schärding",
@@ -110,6 +111,7 @@ console.log(questions);
 let currentQuestion;
 
 let currentPositionQuestion = -1;
+const pictureArray = ["berlin.jpg", "paris.jpg", "rom.jpg", "wien.jpg"];
 
 function start() {
   document.getElementById("start").remove();
@@ -176,6 +178,7 @@ function nextQuestion() {
 
   if (currentPositionQuestion + 1 < questions.length) {
     currentPositionQuestion++;
+
     currentQuestion = questions[currentPositionQuestion];
   } else {
     currentPositionQuestion = 0;
@@ -183,6 +186,14 @@ function nextQuestion() {
   }
 
   editQuestion(currentQuestion);
+  const imageName = pictureArray[currentPositionQuestion];
+  const wrapper = document.getElementById("display-question");
+  if (wrapper) {
+    wrapper.style.backgroundImage = `url('${imageName}')`;
+    wrapper.style.backgroundSize = "cover";
+    wrapper.style.backgroundPosition = "center";
+  }
+
   document.getElementById("start").remove();
 }
 

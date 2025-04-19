@@ -5,6 +5,7 @@ body {
   padding: 0;
 }
 #display-question {
+  background-size: cover;
   background-color: #ddd;
   padding: 2rem 3rem 5rem 3rem;
   margin-top: 0;
@@ -92,7 +93,7 @@ body {
 
 @media only screen and (max-width: 00px) {
   .answer {
-    width: 9rem;
+    width: 200px;
   }
 
   #buttonContent {
