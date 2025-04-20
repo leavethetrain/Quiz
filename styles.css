@@ -7,6 +7,26 @@ body {
   --primary-color: #ddd;
   --second-color: rgb(224, 222, 222);
 }
+
+.user-message {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s ease-in-out;
+}
+
+.message-wrapper {
+  margin-top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 1rem;
+  width: auto;
+  padding: 0.8rem;
+  border-radius: 20px;
+  font-size: 14px;
+}
 #display-question {
   background-size: cover;
   background-color: var(--primary-color);
@@ -29,7 +49,6 @@ body {
   width: 8rem;
   font-size: 1.7rem;
   border: 1px solid var(--primary-color);
-
   border-radius: 5px;
   background-color: var(--second-color);
 }
@@ -96,21 +115,26 @@ body {
   width: 6rem;
 }
 
-@media only screen and (max-width: 00px) {
+@media only screen and (max-width: 500px) {
   .answer {
-    width: 200px;
+    width: 300px;
+    height: 4rem;
   }
 
   #buttonContent {
-    gap: 1.7rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
   }
 
   #display-question {
     padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding-top: 0.8rem;
   }
 
   #title {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 }

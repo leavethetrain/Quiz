@@ -213,18 +213,42 @@ function nextQuestion() {
   document.getElementById("start").remove();
 }
 
+function messageBox(message, duration = 3000, color = "#000") {
+  const userMessage = document.getElementById("msg-wrapper");
+  userMessage.textContent = message;
+  userMessage.style.backgroundColor = color;
+  userMessage.classList.add("message-wrapper");
+  userMessage.style.opacity = 1;
+  userMessage.style.visibility = "visible";
+  userMessage.style.transition = "opacity 0.5s ease-in-out";
+
+  setTimeout(() => {
+    userMessage.style.opacity = 0;
+    userMessage.style.visibility = "hidden";
+    userMessage.classList.remove("msg-wrapper");
+  }, duration);
+}
+
 function input(answerId) {
   const correctAnswer = currentQuestion.answers.find((answer) => {
     return answer.correct;
   });
 
+  const blockButton = document.querySelectorAll(".answer");
+  blockButton.forEach((buttons) => {
+    buttons.disabled = true;
+  });
   if (correctAnswer.id === answerId) {
-    alert("Die Antwort ist richtig! :)");
     document.getElementById(answerId).classList.add("correct");
+    messageBox("RICHTIG", 2000, "green");
   } else {
-    alert("Die Antwort ist leider falsch! :(");
     document.getElementById(answerId).classList.add("incorrect");
     document.getElementById(correctAnswer.id).classList.add("correct");
+    messageBox(
+      "Leider falsch! Die richtige Antwort lautet " + correctAnswer.text,
+      3000,
+      "red"
+    );
   }
 }
 
