@@ -111,7 +111,12 @@ console.log(questions);
 let currentQuestion;
 
 let currentPositionQuestion = -1;
-const pictureArray = ["berlin.jpg", "paris.jpg", "rom.jpg", "wien.jpg"];
+const pictureArray = [
+  "img/berlin.jpg",
+  "img/paris.jpg",
+  "img/rom.jpg",
+  "img/wien.jpg",
+];
 
 function start() {
   document.getElementById("start").remove();
