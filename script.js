@@ -119,6 +119,10 @@ function start() {
   nextQuestion();
 }
 
+function reset() {
+  location.reload();
+}
+
 function editQuestion(questionElement) {
   const wrapper = document.createElement("div");
   wrapper.id = "display-question";
@@ -153,6 +157,10 @@ function editQuestion(questionElement) {
 
   const footer = document.createElement("footer");
   footer.id = "footer";
+  const resetButton = document.createElement("button");
+  resetButton.setAttribute("onclick", `reset()`);
+  const resetButtonText = document.createTextNode("Zum Start");
+  resetButton.appendChild(resetButtonText);
   const answerButton = document.createElement("button");
   answerButton.setAttribute("onclick", `solution()`);
   const answerButtonText = document.createTextNode("Lösung");
@@ -161,6 +169,7 @@ function editQuestion(questionElement) {
   forwardButton.setAttribute("onclick", `nextQuestion()`);
   const forwardButtonText = document.createTextNode("Weiter");
   forwardButton.appendChild(forwardButtonText);
+  footer.appendChild(resetButton);
   footer.appendChild(answerButton);
   footer.appendChild(forwardButton);
 
@@ -189,7 +198,9 @@ function nextQuestion() {
   const imageName = pictureArray[currentPositionQuestion];
   const wrapper = document.getElementById("display-question");
   if (wrapper) {
-    wrapper.style.backgroundImage = `url('${imageName}')`;
+    wrapper.style.backgroundImage = `linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.2)),url('${imageName}')`;
     wrapper.style.backgroundSize = "cover";
     wrapper.style.backgroundPosition = "center";
   }
@@ -203,10 +214,10 @@ function input(answerId) {
   });
 
   if (correctAnswer.id === answerId) {
-    alert("Die Antwort ist richtig");
+    alert("Die Antwort ist richtig! :)");
     document.getElementById(answerId).classList.add("correct");
   } else {
-    alert("Die Antwort ist falsch");
+    alert("Die Antwort ist leider falsch! :(");
     document.getElementById(answerId).classList.add("incorrect");
     document.getElementById(correctAnswer.id).classList.add("correct");
   }
