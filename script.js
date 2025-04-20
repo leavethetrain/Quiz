@@ -240,14 +240,14 @@ function input(answerId) {
   });
   if (correctAnswer.id === answerId) {
     document.getElementById(answerId).classList.add("correct");
-    messageBox("RICHTIG", 2000, "green");
+    messageBox("RICHTIG! :)", 2000, "	#a2cd5a");
   } else {
     document.getElementById(answerId).classList.add("incorrect");
     document.getElementById(correctAnswer.id).classList.add("correct");
     messageBox(
       "Leider falsch! Die richtige Antwort lautet " + correctAnswer.text,
       3000,
-      "red"
+      "#ff4040"
     );
   }
 }

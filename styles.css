@@ -1,3 +1,21 @@
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(2px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 body {
   height: 100vh;
   font-family: "helvetica";
@@ -24,10 +42,12 @@ body {
   height: 1rem;
   width: auto;
   padding: 0.8rem;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #display-question {
+  height: 70vh;
   background-size: cover;
   background-color: var(--primary-color);
   padding: 2rem 3rem 5rem 3rem;
@@ -35,7 +55,7 @@ body {
   margin-bottom: 2rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #start {
@@ -58,6 +78,7 @@ body {
   font-size: 2.7rem;
   text-align: center;
   color: white;
+  text-shadow: 3px 3px 8px black;
 }
 
 #buttonContent {
@@ -75,7 +96,6 @@ body {
   border-radius: 8px;
   border: none;
   background-color: var(--second-color);
-
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -85,6 +105,7 @@ body {
   transition: ease-in-out 0.1s;
   border: none;
   cursor: pointer;
+  transform: translateY(-2px);
 }
 
 .answer.correct {
@@ -93,6 +114,7 @@ body {
 
 .answer.incorrect {
   background-color: rgb(224, 33, 33);
+  animation: shake 0.2s ease-in-out;
 }
 
 #footer button:hover {
