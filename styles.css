@@ -40,7 +40,9 @@ body {
   padding: 0.8rem;
   border-radius: 10px;
   font-size: 14px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #display-question {
