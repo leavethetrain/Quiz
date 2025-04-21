@@ -84,7 +84,7 @@ const questions = [
     answers: [
       {
         text: "Music TeleVision",
-        correct: false,
+        correct: true,
         id: "a",
       },
       {
@@ -99,7 +99,7 @@ const questions = [
       },
       {
         text: "Main Tune Video",
-        correct: true,
+        correct: false,
         id: "d",
       },
     ],
