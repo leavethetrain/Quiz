@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&family=Special+Elite&display=swap");
+
 @keyframes shake {
   0% {
     transform: translateX(0);
@@ -18,18 +20,12 @@
 
 body {
   height: 100vh;
-  font-family: "helvetica";
   margin: 0;
   padding: 0;
+  background-color: #1b1b1b;
 
   --primary-color: #ddd;
-  --second-color: rgb(224, 222, 222);
-}
-
-.user-message {
-  opacity: 1;
-  visibility: visible;
-  transition: 0.5s ease-in-out;
+  --second-color: rgb(168, 168, 168);
 }
 
 .message-wrapper {
@@ -46,6 +42,7 @@ body {
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #display-question {
   height: 70vh;
   background-size: cover;
@@ -58,24 +55,54 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#start {
-  margin: 3.5rem;
-  width: auto;
-  text-align: center;
+.start-screen {
+  background-image: url(img/buehne.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
-.start-button {
-  height: 4rem;
-  width: 8rem;
-  font-size: 1.7rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  background-color: var(--second-color);
+.start-div {
+  margin-top: 14rem;
+  border: 3px solid #d4d4d448;
+  background-color: rgba(100, 100, 111, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15rem;
+  width: 15rem;
+  font-size: 2rem;
+  color: #d4d4d4b4;
+  text-shadow: 3px 3px 8px black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#start {
+  margin: 1rem;
+  width: auto;
+  text-align: center;
+  border: 1px solid black;
+  height: 9rem;
+  width: auto;
+  border: none;
 }
 
 #title {
+  font-family: "Big Shoulders Inline", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
   margin-bottom: 3rem;
-  font-size: 2.7rem;
+  font-size: 3rem;
   text-align: center;
   color: white;
   text-shadow: 3px 3px 8px black;
@@ -90,22 +117,35 @@ body {
 }
 
 .answer {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
   height: 6rem;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   width: auto;
   border-radius: 8px;
   border: none;
   background-color: var(--second-color);
+  color: #2b2a2a;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.12);
 }
 
-.start-button:hover,
-.answer:hover {
-  background-color: rgb(253, 253, 253);
+.answer:hover,
+#footer button:hover {
+  background-color: #1b1b1b;
+  color: var(--second-color);
   transition: ease-in-out 0.1s;
   border: none;
   cursor: pointer;
   transform: translateY(-2px);
+  filter: brightness(80%);
+}
+
+.start-div:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+  transition: ease-in-out 0.1s;
+  background-color: rgba(100, 100, 111, 0.4);
 }
 
 .answer.correct {
@@ -115,10 +155,6 @@ body {
 .answer.incorrect {
   background-color: rgb(224, 33, 33);
   animation: shake 0.2s ease-in-out;
-}
-
-#footer button:hover {
-  filter: brightness(90%);
 }
 
 #footer {
@@ -132,15 +168,23 @@ body {
 #footer button {
   border-radius: 4px;
   border: none;
-  background-color: var(--primary-color);
+  background-color: var(--second-color);
   height: 2.5rem;
   width: 6rem;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
 }
 
 @media only screen and (max-width: 500px) {
+  #display-question {
+    height: auto;
+  }
   .answer {
     width: 300px;
     height: 4rem;
+    font-size: 1.4rem;
   }
 
   #buttonContent {

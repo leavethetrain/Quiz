@@ -1,105 +1,186 @@
 const questions = [
   {
-    question: "Welche Hauptstadt hat Deutschland?",
+    question: "In welchem Jahr erschien Nirvanas Album 'Nevermind'?",
     id: 1,
     answers: [
       {
-        text: "München",
+        text: "1989",
         correct: false,
         id: "a",
       },
       {
-        text: "Berlin",
+        text: "1991",
         correct: true,
         id: "b",
       },
       {
-        text: "Hamburg",
+        text: "1993",
         correct: false,
         id: "c",
       },
       {
-        text: "Hannover",
+        text: "1995",
         correct: false,
         id: "d",
       },
     ],
   },
   {
-    question: "Welche Hauptstadt hat Frankreich?",
+    question: "Welcher Musiker war Frontmann von Alice in Chains?",
     id: 2,
     answers: [
       {
-        text: "Luxemburg",
+        text: "Chris Cornell",
         correct: false,
         id: "a",
       },
       {
-        text: "Marseille",
+        text: "Taylor Swift",
         correct: false,
         id: "b",
       },
       {
-        text: "Paris",
-        correct: true,
+        text: "Dave Grohl",
+        correct: false,
         id: "c",
       },
       {
-        text: "Istanbul",
-        correct: false,
+        text: "Layne Staley",
+        correct: true,
         id: "d",
       },
     ],
   },
   {
-    question: "Welche Hauptstadt hat Italien?",
+    question: "Welcher Song stammt von Pearl Jam?",
     id: 3,
     answers: [
       {
-        text: "Rom",
-        correct: true,
+        text: "Smells Like Teen Spirit",
+        correct: false,
         id: "a",
       },
       {
-        text: "Madrid",
+        text: "Man in the Box",
         correct: false,
         id: "b",
       },
       {
-        text: "Kabul",
+        text: "Mockingbird",
         correct: false,
         id: "c",
       },
       {
-        text: "Lima",
-        correct: false,
+        text: "Black",
+        correct: true,
         id: "d",
       },
     ],
   },
   {
-    question: "Welche Hauptstadt hat Österreich?",
+    question: "Wofür steht 'MTV' bei 'MTV unplugged'?",
     id: 4,
 
     answers: [
       {
-        text: "Schärding",
+        text: "Music TeleVision",
         correct: false,
         id: "a",
       },
       {
-        text: "Braunau",
+        text: "Mega Tune Vibes",
         correct: false,
         id: "b",
       },
       {
-        text: "Tirol",
+        text: "Media Tech Vision",
         correct: false,
         id: "c",
       },
       {
-        text: "Wien",
+        text: "Main Tune Video",
         correct: true,
+        id: "d",
+      },
+    ],
+  },
+  {
+    question: "Wer war der Leadsänger von Linkin Park bis 2017?",
+    id: 5,
+
+    answers: [
+      {
+        text: "Corey Taylor",
+        correct: false,
+        id: "a",
+      },
+      {
+        text: "Mike Shinoda",
+        correct: false,
+        id: "b",
+      },
+      {
+        text: "Justin Bieber",
+        correct: false,
+        id: "c",
+      },
+      {
+        text: "Chester Bennington",
+        correct: true,
+        id: "d",
+      },
+    ],
+  },
+  {
+    question: "Wie alt war Jimi Hendrix als er 1970 starb?",
+    id: 6,
+
+    answers: [
+      {
+        text: "28 Jahre",
+        correct: false,
+        id: "a",
+      },
+      {
+        text: "30 Jahre",
+        correct: false,
+        id: "b",
+      },
+      {
+        text: "33 Jahre",
+        correct: false,
+        id: "c",
+      },
+      {
+        text: "27 Jahre",
+        correct: true,
+        id: "d",
+      },
+    ],
+  },
+  {
+    question: "Was bedeutet die Abkürzung 'P.O.D'?",
+    id: 7,
+
+    answers: [
+      {
+        text: "Path Of Destiny",
+        correct: false,
+        id: "a",
+      },
+      {
+        text: "Payable On Death",
+        correct: true,
+        id: "b",
+      },
+      {
+        text: "Power of Determination",
+        correct: false,
+        id: "c",
+      },
+      {
+        text: "People Of Desire",
+        correct: false,
         id: "d",
       },
     ],
@@ -109,23 +190,33 @@ const questions = [
 console.log(questions);
 
 let currentQuestion;
-
 let currentPositionQuestion = -1;
+
 const pictureArray = [
-  "img/berlin.jpg",
-  "img/paris.jpg",
-  "img/rom.jpg",
-  "img/wien.jpg",
+  "img/marshall.jpg",
+  "img/musician.jpg",
+  "img/band.jpg",
+  "img/casette.jpg",
+  "img/redguitar.jpg",
+  "img/gitarre1.jpg",
+  "img/drums.jpg",
 ];
 
 function start() {
-  document.getElementById("start").remove();
+  const startSound = document.getElementById("start-sound");
+  startSound.play();
+
+  document.getElementById("wrapper-start").remove();
 
   nextQuestion();
 }
 
 function reset() {
-  location.reload();
+  const startSound = document.getElementById("start-sound");
+  startSound.play();
+  setTimeout(() => {
+    location.reload();
+  }, 400);
 }
 
 function editQuestion(questionElement) {
@@ -139,7 +230,6 @@ function editQuestion(questionElement) {
   questionTitle.appendChild(questionText);
   const questionAnswers = document.createElement("div");
   questionAnswers.id = "buttonContent";
-
   questionDiv.appendChild(questionTitle);
   questionDiv.appendChild(questionAnswers);
 
@@ -177,13 +267,14 @@ function editQuestion(questionElement) {
   footer.appendChild(resetButton);
   footer.appendChild(answerButton);
   footer.appendChild(forwardButton);
-
   document.body.appendChild(wrapper);
   wrapper.appendChild(questionDiv);
   document.body.appendChild(footer);
 }
 
 function nextQuestion() {
+  const startSound = document.getElementById("start-sound");
+  startSound.play();
   if (currentQuestion) {
     document.getElementById(String(currentQuestion.id)).remove();
     document.getElementById("display-question").remove();
@@ -192,7 +283,6 @@ function nextQuestion() {
 
   if (currentPositionQuestion + 1 < questions.length) {
     currentPositionQuestion++;
-
     currentQuestion = questions[currentPositionQuestion];
   } else {
     currentPositionQuestion = 0;
@@ -204,12 +294,11 @@ function nextQuestion() {
   const wrapper = document.getElementById("display-question");
   if (wrapper) {
     wrapper.style.backgroundImage = `linear-gradient(
-      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.7),
       rgba(0, 0, 0, 0.2)),url('${imageName}')`;
     wrapper.style.backgroundSize = "cover";
     wrapper.style.backgroundPosition = "center";
   }
-
   document.getElementById("start").remove();
 }
 
@@ -225,7 +314,6 @@ function messageBox(message, duration = 3000, color = "#000") {
   setTimeout(() => {
     userMessage.style.opacity = 0;
     userMessage.style.visibility = "hidden";
-    userMessage.classList.remove("msg-wrapper");
   }, duration);
 }
 
@@ -238,6 +326,7 @@ function input(answerId) {
   blockButton.forEach((buttons) => {
     buttons.disabled = true;
   });
+
   if (correctAnswer.id === answerId) {
     document.getElementById(answerId).classList.add("correct");
     messageBox("RICHTIG! :)", 2000, "	#a2cd5a");
@@ -253,8 +342,13 @@ function input(answerId) {
 }
 
 function solution() {
-  const correctAnswer = currentQuestion.answers.find((answer) => {
-    return answer.correct;
-  });
-  document.getElementById(correctAnswer.id).classList.add("correct");
+  const startSound = document.getElementById("start-sound");
+  startSound.play();
+
+  setTimeout(() => {
+    const correctAnswer = currentQuestion.answers.find((answer) => {
+      return answer.correct;
+    });
+    document.getElementById(correctAnswer.id).classList.add("correct");
+  }, 400);
 }
