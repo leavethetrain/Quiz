@@ -333,6 +333,7 @@ function input(answerId) {
   } else {
     document.getElementById(answerId).classList.add("incorrect");
     document.getElementById(correctAnswer.id).classList.add("correct");
+    navigator.vibrate([100]);
     messageBox(
       "Leider falsch! Die richtige Antwort lautet " + correctAnswer.text,
       3000,
